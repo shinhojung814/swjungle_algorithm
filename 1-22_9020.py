@@ -1,11 +1,11 @@
-# 9030. 골드바흐의 추측
+# 9020. 골드바흐의 추측
 # https://www.acmicpc.net/problem/9020
 
 import sys
 
-sys.stdin = open("1-22_9030.txt", "r")
+sys.stdin = open("1-22_9020.txt", "r")
 
-ch = [0] * (10000)
+ch = [0] * 10000
 prime_list = []
 
 for i in range(2, 10000):
