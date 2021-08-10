@@ -16,12 +16,12 @@ def bubble_sort(a: MutableSequence) -> None:
 if __name__ == '__main__':
     N = int(sys.stdin.readline())
     
-    sort_arr = []
+    sorted_arr = []
     
     for _ in range(N):
-        sort_arr.append(int(sys.stdin.readline()))
+        sorted_arr.append(int(sys.stdin.readline()))
     
-    bubble_sort(sort_arr)
+    bubble_sort(sorted_arr)
     
     for i in range(N):
-        print(sort_arr[i])
+        print(sorted_arr[i])
