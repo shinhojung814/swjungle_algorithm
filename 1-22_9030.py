@@ -5,13 +5,13 @@ import sys
 
 sys.stdin = open("1-22_9030.txt", "r")
 
-ch = [0] * (10000 + 1)
+ch = [0] * (10000)
 prime_list = []
 
-for i in range(2, 10000 + 1):
+for i in range(2, 10000):
     if ch[i] == 0:
         prime_list.append(i)
-        for j in range(i, 10000 + 1, i):
+        for j in range(i, 10000, i):
             ch[j] = 1
 
 for _ in range(int(sys.stdin.readline())):
