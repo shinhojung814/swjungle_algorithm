@@ -15,13 +15,12 @@ max_sum = 0
 
 for i in cases:
     arr = list(i)
-    
-    arr_sum = 0
+    diff_sum = 0
 
     for idx in range(0, len(arr) - 1):
-        arr_sum += abs(arr[idx] - arr[idx + 1])
+        diff_sum += abs(arr[idx] - arr[idx + 1])
         
-        if arr_sum > max_sum:
-            max_sum = arr_sum 
+        if diff_sum > max_sum:
+            max_sum = diff_sum 
 
 print(max_sum)
