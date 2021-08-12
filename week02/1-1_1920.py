@@ -2,7 +2,6 @@
 # https://www.acmicpc.net/problem/1920
 
 import sys
-from typing import Sequence, Any
 
 sys.stdin = open("1-1_1920.txt", "r")
 
