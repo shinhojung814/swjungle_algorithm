@@ -15,7 +15,7 @@ num_list.sort()
 
 M = int(sys.stdin.readline())
 
-key_list = list(map(int, sys.stdin.readline().split()))\
+key_list = list(map(int, sys.stdin.readline().split()))
 
 def binary_search(a, key):
     pl = 0
