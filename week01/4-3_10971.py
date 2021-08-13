@@ -6,7 +6,7 @@ from itertools import permutations
 
 sys.stdin = open("4-3_10971.txt")
 
-def traveling_salesman():
+def solution():
     N = int(sys.stdin.readline())
     cost_matrix = []
 
@@ -44,4 +44,4 @@ def traveling_salesman():
 
     print(min_cost)
 
-traveling_salesman()
+solution()
