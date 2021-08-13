@@ -29,16 +29,8 @@ for key in key_list:
         elif num_list[mid] < key:
             start = mid + 1
         else:
-<<<<<<< HEAD
             end = mid - 1
     if flag == True:
         print(1)
     else:
         print(0)
-=======
-            pr = pc - 1
-    return 0
-
-for key in key_list:
-    print(binary_search(num_list, key))
->>>>>>> 9e9d74df74325b29f773d25153dcf651a180dd15
