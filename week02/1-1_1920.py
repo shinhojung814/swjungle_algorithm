@@ -15,21 +15,23 @@ num_list.sort()
 
 M = int(sys.stdin.readline())
 
-key_list = list(map(int, sys.stdin.readline().split()))\
-
-def binary_search(a, key):
-    pl = 0
-    pr = len(a) - 1
-    
-    while pl <= pr:
-        pc = (pl + pr) // 2
-        if a[pc] == key:
-            return 1
-        elif a[pc] < key:
-            pl = pc + 1
-        else:
-            pr = pc - 1
-    return 0
+key_list = list(map(int, sys.stdin.readline().split()))
 
 for key in key_list:
-    print(binary_search(num_list, key))
+    start = 0
+    end = len(num_list) - 1
+    flag = False
+    
+    while start <= end:
+        mid = (start + end) // 2
+        if num_list[mid] == key:
+            flag = True
+            break
+        elif num_list[mid] < key:
+            start = mid + 1
+        else:
+            end = mid - 1
+    if flag == True:
+        print(1)
+    else:
+        print(0)
