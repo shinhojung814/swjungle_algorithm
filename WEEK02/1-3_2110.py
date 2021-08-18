@@ -12,21 +12,21 @@ loc = sorted([int(input()) for i in range(N)])
 
 left = 1
 right = loc[-1] - loc[0]
-answer = []
+result = []
 
 while left <= right:
-    iptime = 1
-    last = loc[0]
+    cnt = 1
+    pivot = loc[0]
     
     mid = (left + right) // 2
     for i in range(1, N):
-        if loc[i] - last >= mid:
-            iptime += 1
-            last = loc[i]
-    if iptime < C:
+        if loc[i] - pivot >= mid:
+            cnt += 1
+            pivot = loc[i]
+    if cnt < C:
         right = mid - 1
     else:
         left = mid + 1
-        answer.append(mid)
+        result.append(mid)
         
-print(max(answer))
+print(max(result))
