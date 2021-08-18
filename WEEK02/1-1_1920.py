@@ -4,33 +4,27 @@
 import sys
 
 sys.stdin = open("1-1_1920.txt", "r")
+input = sys.stdin.readline
 
-N = int(sys.stdin.readline())
+N = int(input())
+A = sorted(list(map(int, input().split())))
 
-input_str = sys.stdin.readline().split('\n')[0]
+M = int(input())
+num_list = list(map(int, input().split()))
 
-num_list = list(map(int, input_str.split()))
-num_list.sort()
-
-M = int(sys.stdin.readline())
-
-key_list = list(map(int, sys.stdin.readline().split()))
-
-for key in key_list:
-    start = 0
-    end = len(num_list) - 1
-    flag = False
+def binary_search(A, num):
+    left = 0
+    right = len(A) - 1
     
-    while start <= end:
-        mid = (start + end) // 2
-        if num_list[mid] == key:
-            flag = True
-            break
-        elif num_list[mid] < key:
-            start = mid + 1
+    while left <= right:
+        mid = (left + right) // 2
+        if A[mid] == num:
+            return 1
+        elif A[mid] < num:
+            left = mid + 1
         else:
-            end = mid - 1
-    if flag == True:
-        print(1)
-    else:
-        print(0)
+            right = mid - 1
+    return 0
+
+for num in num_list:
+    print(binary_search(A, num))
