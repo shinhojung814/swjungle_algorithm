@@ -4,28 +4,28 @@
 import sys
 
 sys.stdin = open("1-2_2805.txt", "r")
+input = sys.stdin.readline
 
-N, M = map(int, sys.stdin.readline().split())
-height_list = list(map(int, sys.stdin.readline().split()))
-height_list.sort()
+N, M = map(int, input().split())
+heights = sorted(list(map(int, input().split())))
 
-start = 0
-end = max(height_list)
+left = 0
+right = max(heights)
 
-max_height = 0
+result = 0
 
-while start <= end:
-    height_sum = 0
-    mid = (start + end) // 2
+while left <= right:
+    total = 0
+    mid = (left + right) // 2
     
-    for height in height_list:
+    for height in heights:
         if height > mid:
-            height_sum += height - mid
-        
-    if height_sum < M:
-        end = mid - 1
+            total += height - mid
+    
+    if total < M:
+        right = mid - 1
     else:
-        max_height = mid
-        start = mid + 1
+        result = mid
+        left = mid + 1
 
-print(max_height)
+print(result)
