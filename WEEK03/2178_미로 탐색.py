@@ -8,23 +8,6 @@ sys.stdin = open("2178_미로 탐색.txt", "r")
 input = sys.stdin.readline
 
 def breadth_first(x, y):
-    queue = deque()
-    queue.append((x, y))
-    
-    while queue:
-        x, y = queue.popleft()
-        for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
-            
-            if nx < 0 or nx >= N or ny < 0 or ny >= 0:
-                continue
-            if graph[nx][ny] == 0:
-                continue
-            if graph[nx][ny] == 1:
-                graph[nx][ny] = graph[x][y] + 1
-
-def breadth_first(x, y):
     # 큐를 생성하고 시작점을 큐에 추가
     queue = deque()
     queue.append((x, y))
