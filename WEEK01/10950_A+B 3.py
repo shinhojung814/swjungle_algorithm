@@ -2,7 +2,7 @@
 # https://www.acmicpc.net/problem/10950
 
 import sys
-sys.stdin = open("1-8_10950.txt", "r")
+sys.stdin = open("10950_A+B 3.txt", "r")
 
 T = int(input())
 for num in range(T):
