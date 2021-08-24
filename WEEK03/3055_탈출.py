@@ -9,66 +9,52 @@ input = sys.stdin.readline
 
 def breadth_first():
     R, C = map(int, input().split())
-    queue = deque([])
-    maps = []
-    visited = [[0 for _ in range(C)] for _ in range(R)]
-    start = []
+    arr = [list(input().rstrip()) for _ in range(R)]
+    queue = deque()
     
+    dx = [-1, 0, 1, 0]
+    dy = [0, -1, 0, 1]
+    
+    # 물이 차있는 지역과 고슴도치를 큐에 삽입
     for i in range(R):
-        # 좌표 정보를 나타내는 입력값 문자열
-        input_str = input().rstrip()
-        for j in range(len(input_str)):
-            # 비어있는 곳: '.'
-            if input_str[j] == '.':
-                continue
-            # 돌: 'X'
-            elif input_str[j] == 'X':
-                visited[i][j] = 1
-            # 물이 차있는 지역: '*'
-            elif input_str[j] == '*':
-                # visited값이 2인 경우는 무엇을 의미하는지?
-                visited[i][j] = 2
-                # 네번째 입력값에 0이면 물큐
-                queue.append((i, j, 0, 0))
-            # 고슴도치의 위치: 'S'
-            elif input_str[j] == 'S':
-                start = [i, j]
-        maps.append(input_str)
-    # 네번째 입력값이 1이면 고슴도치 큐
-    queue.append((start[0], start[1], 0, 1))
-    
-    dx = [0, 1, 0, -1]
-    dy = [1, 0, -1, 0]
+        for j in range(C):
+            # 해당 지역이 목표 지점인 경우
+            if arr[i][j] == 'D':
+                D = [i, j]
+            # 해당 지역이 물이 차있는 지역인 경우
+            elif arr[i][j] == '*':
+                queue.append([i, j, '*'])
+            # 해당 지역이 고슴도치의 위치인 경우
+            elif arr[i][j] == 'S':
+                arr[i][j] == 1
+                S = [i, j, 0]
+    queue.append(S)
     
     while queue:
-        # x, y는 고슴도치가 출발하는 지점의 좌표, cnt는 총 이동 횟수
-        x, y, cnt, hedgehog = queue.popleft()
-        
-        # 이동 가능한 네 개의 방향을 탐색
-        for i in range(4):
-            tx = x + dx[i]
-            ty = y + dy[i]
-            
-            # 이동하는 칸이 범위 안에 속하고 돌이 아닌 경우
-            if 0 <= tx < R and 0 <= ty < C and maps[tx][ty] != 'X':
-                # hedgehog가 0이 아니라면 이 의미하는게 무엇인지?
-                if hedgehog:
-                    # 새로운 칸을 방문하지 않았을 경우
-                    if visited[tx][ty] == 0:
-                        # 이동하는 칸이 목표 지점이면
-                        if maps[tx][ty] == 'D':
-                            # cnt + 1을 출력한다
-                            return cnt + 1
-                        # visited가 2인 경우가 의미하는 것이 무엇인지?
-                        visited[tx][ty] = 2
-                        queue.append((tx, ty, cnt + 1, hedgehog))
+        # z는 고슴도치를 큐에 삽입한다는 것과 이동 시간을 의미
+        x, y, z = queue.popleft()
+        # 목표 지점에 도착하면 z를 출력
+        if x == D[0] and y == D[1]:
+            print(z)
+            break
+        else:
+            for i in range(4):
+                nx = x + dx[i]
+                ny = y + dy[i]
+                # 이동하는 지역이 범위를 벗어나는 경우
+                if nx < 0 or nx >= R or ny < 0 or ny >= C:
+                    continue
                 else:
-                    # visited값이 2이고 비어 있는 칸인 경우
-                    if visited[tx][ty] != 2 and maps[tx][ty] == '.':
-                        visited[tx][ty] = 2
-                        # 새로운 칸을 고슴도치 큐에 삽입
-                        queue.append((tx, ty, cnt, hedgehog))
-    
-    return "KAKTUS"
+                    # 이동하는 지역이 목표 지점, 물이 이미 차있는 지역과 바위가 아닌 경우
+                    if z == '*' and arr[nx][ny] != 'D' and arr[nx][ny] != '*' and arr[nx][ny] != 'X':
+                        arr[nx][ny] = '*'
+                        queue.append([nx, ny, '*'])
+                    # 이동하는 지역이 비어있는 곳이거나 목표 지점인 경우
+                    elif type(z) == int and (arr[nx][ny] == '.' or arr[nx][ny] == 'D'):
+                        arr[nx][ny] = z + 1
+                        queue.append([nx, ny, z + 1])
+        # 큐가 빌 때까지 목표 지점에 도착하지 못하는 경우
+        if len(queue) == 0:
+            print("KAKTUS")
 
-print(breadth_first())
+breadth_first()
