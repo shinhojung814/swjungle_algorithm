@@ -26,7 +26,6 @@ def breadth_first():
                 queue.append([i, j, '*'])
             # 해당 지역이 고슴도치의 위치인 경우
             elif arr[i][j] == 'S':
-                arr[i][j] == 1
                 S = [i, j, 0]
     queue.append(S)
     
