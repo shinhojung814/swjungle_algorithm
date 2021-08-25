@@ -26,8 +26,8 @@ def breadth_first():
                 queue.append([i, j, '*'])
             # 해당 지역이 고슴도치의 위치인 경우
             elif arr[i][j] == 'S':
-                S = [i, j, 0]
-    queue.append(S)
+                hedgehog = [i, j, 0]
+    queue.append(hedgehog)
     
     while queue:
         # z는 고슴도치를 큐에 삽입한다는 것과 이동 시간을 의미
@@ -40,16 +40,18 @@ def breadth_first():
             for i in range(4):
                 nx = x + dx[i]
                 ny = y + dy[i]
-                # 이동하는 지역이 범위를 벗어나는 경우
+                # 이동하는 지역이 범위를 벗어나는 경우 생략
                 if nx < 0 or nx >= R or ny < 0 or ny >= C:
                     continue
                 else:
                     # 이동하는 지역이 목표 지점, 물이 이미 차있는 지역과 바위가 아닌 경우
                     if z == '*' and arr[nx][ny] != 'D' and arr[nx][ny] != '*' and arr[nx][ny] != 'X':
+                        # 새로운 위치를 물로 채우고 큐에 삽입
                         arr[nx][ny] = '*'
                         queue.append([nx, ny, '*'])
                     # 이동하는 지역이 비어있는 곳이거나 목표 지점인 경우
                     elif type(z) == int and (arr[nx][ny] == '.' or arr[nx][ny] == 'D'):
+                        # 이동 시간을 1만큼 더하고 새로운 위치를 큐에 삽입
                         arr[nx][ny] = z + 1
                         queue.append([nx, ny, z + 1])
         # 큐가 빌 때까지 목표 지점에 도착하지 못하는 경우
