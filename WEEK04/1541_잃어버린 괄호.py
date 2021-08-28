@@ -18,9 +18,3 @@ for item in str.split('-'):
 result = "-".join(result)
 
 print(eval(result))
-
-# for char in result:
-#     if type(char) != int:
-#         result = result.split(char)
-
-# print(result)
