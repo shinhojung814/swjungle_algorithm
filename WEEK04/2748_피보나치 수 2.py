@@ -12,14 +12,14 @@ N = int(input())
 dp = [0] * 100
 
 # 하향식 동적 프로그래밍
-def fibonacci(N):
-    if N == 1 or N == 1:
-        return N
+def fibonacci(num):
+    if num == 0 or num == 1:
+        return num
     # 계산 결과가 저장 되있는 경우 저장된 결과 출력
-    if dp[N] != 0:
-        return dp[N]
+    if dp[num] != 0:
+        return dp[num]
     # 계산 결과가 저장되지 않았다면 점화식에 따라서 결과 반환
-    dp[N] = fibonacci(N - 2) + fibonacci(N - 1)
-    return dp[N]
+    dp[num] = fibonacci(num - 2) + fibonacci(num - 1)
+    return dp[num]
 
 print(fibonacci(N))
