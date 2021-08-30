@@ -9,6 +9,7 @@ input = sys.stdin.readline
 N = int(input())
 arr = [list(map(int, input().split())) for _ in range(N)]
 
+# 배열의 i번째 행을 (i - 1)번째 집까지 색칠하는 데에 사용된 최저 비용의 합으로 갱신
 for i in range(1, N):
     arr[i][0] = min(arr[i - 1][1], arr[i - 1][2]) + arr[i][0]
     arr[i][1] = min(arr[i - 1][0], arr[i - 1][2]) + arr[i][1]
