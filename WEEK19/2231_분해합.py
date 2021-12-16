@@ -3,17 +3,17 @@
 
 import sys
 
-sys.stdin = open('2231_분해합.txt', 'r')
+sys.stdin = open("2231_분해합.txt", 'r')
 input = sys.stdin.readline
 
-N = input()
+N = int(input())
 res = []
 
-for i in range(int(N)):
+for i in range(N):
     sum = 0
     for j in range(len(str(i))):
         sum += int(str(i)[j])
-    if int(N) - sum == i:
+    if N - sum == i:
         res.append(i)
 
 if res:
