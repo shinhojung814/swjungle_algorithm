@@ -11,7 +11,7 @@ def solution(begin, target, words):
             for word in words:
                 count = 0
                 for i in range(len(item)):
-                    if word[i] != item[i]:
+                    if item[i] != word[i]:
                         count += 1
                     if count == 2:
                         break

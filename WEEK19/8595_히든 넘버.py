@@ -10,5 +10,5 @@ N = int(input())
 arr = input()
 
 for i in arr:
-    if int(i) <= 0:
+    if (i) <= 0:
         print(i)
