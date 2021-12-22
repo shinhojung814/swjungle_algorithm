@@ -8,7 +8,20 @@ input = sys.stdin.readline
 
 N = int(input())
 arr = input()
+numbers = '0123456789'
+tmp = ''
 
-for i in arr:
-    if (i) <= 0:
-        print(i)
+for i in range(N):
+    if arr[i] in numbers:
+        tmp += arr[i]
+    else:
+        tmp += ' '
+
+arr = list(list(map(str, tmp.split(' '))))
+answer = 0
+
+for j in range(len(arr)):
+    if arr[j] != '':
+        answer += int(arr[j])
+
+print(answer)
