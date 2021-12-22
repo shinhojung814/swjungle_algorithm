@@ -17,11 +17,11 @@ for i in range(N):
     else:
         tmp += ' '
 
-arr = list(list(map(str, tmp.split(' '))))
-answer = 0
+hidden = list(map(str, tmp.split(' ')))
+sum_hidden = 0
 
-for j in range(len(arr)):
+for j in range(len(hidden)):
     if arr[j] != '':
-        answer += int(arr[j])
+        sum_hidden += int(hidden[j])
 
-print(answer)
+print(sum_hidden)
