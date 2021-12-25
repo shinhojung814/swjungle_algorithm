@@ -1,3 +1,5 @@
+import sys
+
 def solution(answers):
     student1 = [1, 2, 3, 4, 5]
     student2 = [2, 1, 2, 3, 2, 4, 2, 5]
