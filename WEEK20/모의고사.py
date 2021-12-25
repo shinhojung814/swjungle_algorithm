@@ -1,4 +1,4 @@
-import sys
+# 완전 탐색 - 모의고사
 
 def solution(answers):
     student1 = [1, 2, 3, 4, 5]

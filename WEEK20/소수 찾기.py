@@ -1,4 +1,5 @@
-import sys
+# 완전 탐색 - 소수 찾기
+
 from itertools import permutations
 
 def solution(numbers):
@@ -26,4 +27,3 @@ def solution(numbers):
             answer += 1
     
     return answer
-        
