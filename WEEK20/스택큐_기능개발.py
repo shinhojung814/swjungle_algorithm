@@ -5,7 +5,7 @@ def solution(progresses, speeds):
     days = 0
     count = 0
     
-    while len(progresses) != 0:
+    while progresses:
         if progresses[0] + days * speeds[0] >= 100:
             progresses.pop(0)
             speeds.pop(0)

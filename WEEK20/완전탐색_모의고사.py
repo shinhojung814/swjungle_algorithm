@@ -1,6 +1,6 @@
 # 완전 탐색 - 모의고사
 
-def solution(answers):
+def solution(answers):    
     student1 = [1, 2, 3, 4, 5]
     student2 = [2, 1, 2, 3, 2, 4, 2, 5]
     student3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
@@ -18,7 +18,7 @@ def solution(answers):
     answer = []
     
     for idx, num in enumerate(scores):
-        if scores[idx] == max(scores):
+        if num == max(scores):
             answer.append(idx + 1)
     
     return answer
