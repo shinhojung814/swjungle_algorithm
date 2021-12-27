@@ -5,15 +5,16 @@ def solution(begin, target, words):
     if target not in words:
         return 0
     
-    while len(words) != 0:
+    while len(words):
         next = []
+        
         for item in stack:
             for word in words:
                 count = 0
                 for i in range(len(item)):
                     if item[i] != word[i]:
                         count += 1
-                    if count == 2:
+                    if count > 1:
                         break
                 if count == 1:
                     next.append(word)
@@ -26,8 +27,3 @@ def solution(begin, target, words):
             stack = next
     
     return answer
-
-begin, target = "hit", "cog"
-words = ["hot", "dot", "dog", "lot", "log", "cog"]
-
-print(solution("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"]))
