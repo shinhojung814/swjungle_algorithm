@@ -2,11 +2,7 @@
 
 function solution(n, computers) {
   var answer = 0;
-  let visited = new Array();
-
-  for (let i = 0; i < n; i++) {
-    visited[i] = false;
-  }
+  let visited = new Array(n).fill(false);
 
   function depthFirst(graph, node, visited) {
     visited[node] = true;
