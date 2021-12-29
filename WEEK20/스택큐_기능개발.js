@@ -18,6 +18,7 @@ function solution(progresses, speeds) {
       days++;
     }
   }
+
   answer.push(count);
 
   return answer;
