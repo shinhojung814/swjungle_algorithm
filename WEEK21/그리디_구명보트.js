@@ -1,5 +1,6 @@
 function solution(people, limit) {
   let answer = 0;
+
   people.sort(function (a, b) {
     return b - a;
   });
