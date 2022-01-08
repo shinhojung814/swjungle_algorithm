@@ -7,11 +7,11 @@ def solution(scoville, K):
     
     while scoville[0] < K:
         try:
-            mix = heapq.heappop(scoville) + (heapq.heappop(scoville) * 2)
+            mixed = heapq.heappop(scoville) + (heapq.heappop(scoville) * 2)
         except IndexError:
             return -1
         
-        heapq.heappush(scoville, mix)
+        heapq.heappush(scoville, mixed)
         
         answer += 1
         
